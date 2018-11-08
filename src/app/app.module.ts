@@ -8,6 +8,7 @@ import {MainComponent} from './_components/_main/main.component';
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app.routing";
 import {ProductModule} from "./_modules/product/product.module";
+import { ProductFormComponent } from './_components/product/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {ProductModule} from "./_modules/product/product.module";
       HeaderComponent,
       FooterComponent,
       MainComponent,
+      ProductFormComponent,
   ],
   imports: [
       BrowserModule,

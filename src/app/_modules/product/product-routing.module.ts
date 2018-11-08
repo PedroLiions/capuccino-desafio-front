@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {ProductsListComponent} from "../../_components/product/products-list/products-list.component";
 import {AppComponent} from "../../app.component";
 import {MainComponent} from "../../_components/_main/main.component";
+import {ProductFormComponent} from "../../_components/product/product-form/product-form.component";
 
 const routes: Routes = [
     {
@@ -12,6 +13,10 @@ const routes: Routes = [
             {
                 path: '',
                 component: ProductsListComponent
+            },
+            {
+                path: 'editar',
+                component: ProductFormComponent
             }
         ]
     }

@@ -1,0 +1,17 @@
+nav {
+  .navbar-nav {
+    .nav-item {
+      padding-left: 0;
+      padding-right: 0;
+      margin-right: 15px;
+      margin-left: 15px;
+      .nav-link{
+        border-bottom: 1px solid rgba(0,0,0,0);
+        padding: 0;
+      }
+      .active {
+        border-bottom-color:rgba(0,0,0,1);
+      }
+    }
+  }
+}

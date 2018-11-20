@@ -45,10 +45,10 @@
         </div>
 
         <div class="col-12 d-flex justify-content-end mt-3">
-            <button *ngIf="!id" class="btn btn-primary" (click)="createSubmit()" [ngClass]="btnSubmitCheckStyle('add')">
+            <button *ngIf="!id" class="btn btn-primary" (click)="onSubmit()" [ngClass]="btnSubmitCheckStyle('add')">
                 Adicionar produto
             </button>
-            <button *ngIf="id" class="btn btn-primary" (click)="createSubmit()"  [ngClass]="btnSubmitCheckStyle('edit')">
+            <button *ngIf="id" class="btn btn-primary" (click)="onSubmit()"  [ngClass]="btnSubmitCheckStyle('edit')">
                 Salvar alterações
             </button>
         </div>

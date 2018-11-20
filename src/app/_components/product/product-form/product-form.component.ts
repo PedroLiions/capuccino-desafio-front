@@ -94,29 +94,33 @@ export class ProductFormComponent implements OnInit {
         }
     }
 
-    createSubmit() {
-        if (this.productForm.valid && this.formToSubmit.get('photo')) {
-            let categories = (JSON.stringify(this.productForm.get('categories').value));
+    onSubmit() {
+        if (this.productForm.valid ) {
 
-            if (this.id) this.formToSubmit.append('id', this.id);
+            if (this.formToSubmit.get('photo') || this.id) {
 
-            this.formToSubmit.append('title', this.productForm.get('title').value);
-            this.formToSubmit.append('price', this.productForm.get('price').value);
-            this.formToSubmit.append('categories', categories);
-            this.formToSubmit.append('status', '1');
-            let create = this.productService.postProduct(this.formToSubmit)
-                .subscribe(res => {
-                    console.log(res);
-                    swal({
-                        text: res.message,
-                        icon: res.icon
+                let categories = (JSON.stringify(this.productForm.get('categories').value));
+
+                if (this.id) this.formToSubmit.append('id', this.id);
+
+                this.formToSubmit.append('title', this.productForm.get('title').value);
+                this.formToSubmit.append('price', this.productForm.get('price').value);
+                this.formToSubmit.append('categories', categories);
+                this.formToSubmit.append('status', '1');
+                let create = this.productService.postProduct(this.formToSubmit)
+                    .subscribe(res => {
+                        console.log(res);
+                        swal({
+                            text: res.message,
+                            icon: res.icon
+                        });
+                    }, err => {
+                        console.log(err)
+                    }, () => {
+                        create.unsubscribe();
+                        this.router.navigate(['/produtos']);
                     });
-                }, err => {
-                    console.log(err)
-                }, () => {
-                    create.unsubscribe();
-                    this.router.navigate(['/produtos']);
-                });
+            }
         }
     }
 

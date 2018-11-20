@@ -1,5 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {HeaderComponent} from './_components/_header/header.component';
@@ -8,7 +8,9 @@ import {MainComponent} from './_components/_main/main.component';
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app.routing";
 import {ProductModule} from "./_modules/product/product.module";
-import { ProductFormComponent } from './_components/product/product-form/product-form.component';
+import {ProductFormComponent} from './_components/product/product-form/product-form.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NgSelectModule} from "@ng-select/ng-select";
 
 @NgModule({
   declarations: [
@@ -21,13 +23,17 @@ import { ProductFormComponent } from './_components/product/product-form/product
   imports: [
       BrowserModule,
       AppRoutingModule,
-      ProductModule
+      ProductModule,
+      FormsModule,
+      ReactiveFormsModule,
+      NgSelectModule
   ],
     exports: [
         RouterModule,
-        AppComponent
+        AppComponent,
+        NgSelectModule,
     ],
-  providers: [],
+    providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

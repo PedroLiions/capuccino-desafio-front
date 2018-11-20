@@ -15,7 +15,11 @@ const routes: Routes = [
                 component: ProductsListComponent
             },
             {
-                path: 'editar',
+                path: 'novo',
+                component: ProductFormComponent
+            },
+            {
+                path: 'editar/:id',
                 component: ProductFormComponent
             }
         ]

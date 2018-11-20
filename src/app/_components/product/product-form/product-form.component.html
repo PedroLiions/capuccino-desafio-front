@@ -1,4 +1,4 @@
-<form action="">
+<form [formGroup]="productForm">
     <div class="row">
 
         <div class="col-12">
@@ -8,15 +8,15 @@
 
         <div class="col-12 col-md-6">
             <div class="form-group">
-                <label for="product-title">Título</label>
-                <input type="text" class="form-control" id="product-title">
+                <label for="product-title">Título *</label>
+                <input type="text" class="form-control" id="product-title" formControlName="title">
             </div>
         </div>
 
         <div class="col-12 col-md-6 mb-3">
-            <label>Valor</label>
+            <label>Valor *</label>
             <div class="input-group">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" formControlName="price">
                 <div class="input-group-prepend ">
                     <span class="input-group-text">R$</span>
                 </div>
@@ -24,16 +24,37 @@
         </div>
 
         <div class="col-12">
+            <div class="form-group" *ngIf="arrayCategories">
+                <label for="">Categorias *</label>
+                <ng-select
+                        [items]="arrayCategories"
+                        bindLabel="name"
+                        bindValue="id"
+                        [multiple]="true"
+                        formControlName="categories">
+                </ng-select>
+
+            </div>
+        </div>
+
+        <div class="col-12">
             <div class="custom-file">
-                <input type="file" class="custom-file-input" (change)="uploadImage($event)" lang="br">
-                <label class="custom-file-label" >Selecionar foto</label>
+                <input type="file" class="custom-file-input" (change)="onFileSelected($event)" lang="br" >
+                <label class="custom-file-label" >Selecionar foto *</label>
             </div>
         </div>
 
         <div class="col-12 d-flex justify-content-end mt-3">
-            <button class="btn btn-primary">
+            <button *ngIf="!id" class="btn btn-primary" (click)="createSubmit()" [ngClass]="btnSubmitCheckStyle('add')">
                 Adicionar produto
             </button>
+            <button *ngIf="id" class="btn btn-primary" (click)="createSubmit()"  [ngClass]="btnSubmitCheckStyle('edit')">
+                Salvar alterações
+            </button>
+        </div>
+
+        <div class="col-12 mt-3 d-flex justify-content-center align-items-center" style="height: 200px; overflow: hidden" *ngIf="product && product.photo">
+            <img class="img-fluid" src="http://localhost:8080/get-image/{{ product.photo }}">
         </div>
 
         <div class="col-12">

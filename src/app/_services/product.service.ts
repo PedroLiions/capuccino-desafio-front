@@ -24,11 +24,6 @@ export class ProductService {
         return this.http.get(`http://localhost:8080/products/${id}`);
     }
 
-    update(params) {
-        console.log(params);
-        // return this.http.put(`http://localhost:8080/products/${params.id}`, queryParams);
-    }
-
     destroy(id): Observable<any> {
         return this.http.delete(`http://localhost:8080/products/${id}`);
     }

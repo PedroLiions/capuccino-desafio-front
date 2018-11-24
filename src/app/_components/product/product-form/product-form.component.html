@@ -1,7 +1,12 @@
 <form [formGroup]="productForm">
     <div class="row">
 
-        <div class="col-12">
+        <div class="col-12" *ngIf="id">
+            <h4>Editar produto</h4>
+            <hr>
+        </div>
+
+        <div class="col-12" *ngIf="!id">
             <h4>Novo produto</h4>
             <hr>
         </div>
@@ -25,7 +30,7 @@
 
         <div class="col-12">
             <div class="form-group" *ngIf="arrayCategories">
-                <label for="">Categorias *</label>
+                <label>Categorias *</label>
                 <ng-select
                         [items]="arrayCategories"
                         bindLabel="name"

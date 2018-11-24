@@ -4,6 +4,7 @@ import {ProductsListComponent} from "../../_components/product/products-list/pro
 import {AppComponent} from "../../app.component";
 import {MainComponent} from "../../_components/_main/main.component";
 import {ProductFormComponent} from "../../_components/product/product-form/product-form.component";
+import {ProductCategoryComponent} from "../../_components/product/product-category/product-category.component";
 
 const routes: Routes = [
     {
@@ -21,6 +22,10 @@ const routes: Routes = [
             {
                 path: 'editar/:id',
                 component: ProductFormComponent
+            },
+            {
+                path: 'categorias',
+                component: ProductCategoryComponent
             }
         ]
     }

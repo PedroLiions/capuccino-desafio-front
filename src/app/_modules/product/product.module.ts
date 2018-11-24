@@ -5,8 +5,8 @@ import {ProductRoutingModule} from './product-routing.module';
 import {ProductsListComponent} from "../../_components/product/products-list/products-list.component";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {FloatToBrPipe} from "../../pipies/float-to-br.pipe";
 import {PipesModule} from "../pipes/pipes.module";
+import {ProductCategoryComponent} from "../../_components/product/product-category/product-category.component";
 
 @NgModule({
     imports: [
@@ -19,6 +19,7 @@ import {PipesModule} from "../pipes/pipes.module";
     ],
     declarations: [
         ProductsListComponent,
+        ProductCategoryComponent
     ]
 })
 export class ProductModule {

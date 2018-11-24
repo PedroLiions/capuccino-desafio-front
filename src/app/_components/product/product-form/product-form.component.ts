@@ -18,7 +18,7 @@ export class ProductFormComponent implements OnInit {
 
     id;
     product: Product;
-    arrayCategories: Category;
+    arrayCategories: Category[];
 
     photo;
 

@@ -11,6 +11,8 @@ import {ProductModule} from "./_modules/product/product.module";
 import {ProductFormComponent} from './_components/product/product-form/product-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgSelectModule} from "@ng-select/ng-select";
+import {PostModule} from "./_modules/post/post.module";
+import { DashboardComponent } from './_components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +21,13 @@ import {NgSelectModule} from "@ng-select/ng-select";
       FooterComponent,
       MainComponent,
       ProductFormComponent,
+      DashboardComponent,
   ],
   imports: [
       BrowserModule,
       AppRoutingModule,
       ProductModule,
+      PostModule,
       FormsModule,
       ReactiveFormsModule,
       NgSelectModule

@@ -15,7 +15,7 @@ import {ProductCategoryComponent} from "../../_components/product/product-catego
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        PipesModule
+        PipesModule,
     ],
     declarations: [
         ProductsListComponent,

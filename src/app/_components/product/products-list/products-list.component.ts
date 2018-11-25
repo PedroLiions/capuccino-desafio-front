@@ -3,6 +3,7 @@ import {Product} from "../../_models/Product";
 import {ProductService} from "../../../_services/product.service";
 
 import swal from 'sweetalert';
+import {environment} from "../../../../environments/environment";
 
 @Component({
     selector: 'app-products-list',
@@ -10,6 +11,7 @@ import swal from 'sweetalert';
     styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnInit {
+    readonly API = environment.api;
 
     products: Product[];
     loading: boolean = true;

@@ -1,11 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {environment} from "../../environments/environment";
 
 @Injectable({
     providedIn: 'root'
 })
 export class ProductService {
+
+    readonly API = environment.api;
 
     constructor(
         private http: HttpClient,
@@ -17,18 +20,18 @@ export class ProductService {
         headers.append('Content-Type', 'multipart/form-data');
         headers.append('Accept', 'application/json');
 
-        return this.http.post('http://localhost:8080/products', params, {headers: headers});
+        return this.http.post(`${this.API}/products`, params, {headers: headers});
     }
 
     show(id): Observable<any> {
-        return this.http.get(`http://localhost:8080/products/${id}`);
+        return this.http.get(`${this.API}/products/${id}`);
     }
 
     destroy(id): Observable<any> {
-        return this.http.delete(`http://localhost:8080/products/${id}`);
+        return this.http.delete(`${this.API}/products/${id}`);
     }
 
     getProducts(): Observable<any> {
-        return this.http.get('http://localhost:8080/products');
+        return this.http.get(`${this.API}/products`);
     }
 }

@@ -1,6 +1,6 @@
 <div class="row mb-4">
     <div class="col-md-6">
-        <h4><i class="far fa-list-alt mr-1"></i>Categorias de Posts</h4>
+        <h4><i class="far fa-list-alt mr-1"></i>Categorias de Produtos</h4>
     </div>
     <div class="col-md-6 d-flex justify-content-end">
         <button class="btn btn-outline-primary"
@@ -22,7 +22,9 @@
         <td>{{ category.id }}</td>
         <td>{{ category.name }}</td>
         <td class="text-right">
-            <button class="btn btn-danger btn-sm" (click)="remove(category.id, i)">Excluir</button>
+            <button class="btn btn-danger btn-sm" (click)="remove(category.id, i)">
+                Excluir <i class="fas fa-times ml-1"></i>
+            </button>
         </td>
     </tr>
     <tr *ngIf="categories && categories.length == 0">
@@ -34,7 +36,8 @@
 </table>
 
 <!-- modal adicionar categoria -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -46,7 +49,8 @@
             <div class="modal-body">
 
                 <div class="input-group">
-                    <input type="text" (change)="setName($event.target.value)" class="form-control" aria-label="Text input with dropdown button">
+                    <input type="text" (change)="setName($event.target.value)" class="form-control"
+                           aria-label="Text input with dropdown button">
                     <div class="input-group-append">
                         <button class="btn btn-primary" (click)="createCategory()">Criar</button>
                     </div>

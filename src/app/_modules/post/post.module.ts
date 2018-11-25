@@ -8,6 +8,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PipesModule} from "../pipes/pipes.module";
 import {NgSelectModule} from "@ng-select/ng-select";
+import {PostCategoryComponent} from "../../_components/post/post-category/post-category.component";
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import {NgSelectModule} from "@ng-select/ng-select";
   ],
     declarations: [
         PostListComponent,
-        PostFormComponent
+        PostFormComponent,
+        PostCategoryComponent
     ]
 })
 export class PostModule {

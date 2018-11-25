@@ -13,6 +13,15 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgSelectModule} from "@ng-select/ng-select";
 import {PostModule} from "./_modules/post/post.module";
 import { DashboardComponent } from './_components/dashboard/dashboard.component';
+import { LoginComponent } from './_components/login/login.component';
+import { RegisterComponent } from './_components/register/register.component';
+
+import { JwtModule } from '@auth0/angular-jwt';
+import { HttpClientModule } from '@angular/common/http';
+
+export function tokenGetter() {
+    return localStorage.getItem('jwt');
+}
 
 @NgModule({
   declarations: [
@@ -22,6 +31,8 @@ import { DashboardComponent } from './_components/dashboard/dashboard.component'
       MainComponent,
       ProductFormComponent,
       DashboardComponent,
+      LoginComponent,
+      RegisterComponent,
   ],
   imports: [
       BrowserModule,
@@ -30,7 +41,14 @@ import { DashboardComponent } from './_components/dashboard/dashboard.component'
       PostModule,
       FormsModule,
       ReactiveFormsModule,
-      NgSelectModule
+      NgSelectModule,
+      HttpClientModule,
+      JwtModule.forRoot({
+          config: {
+              tokenGetter: tokenGetter,
+              whitelistedDomains: ['localhost', 'localhost:8080', 'localhost:8080'],
+          }
+      })
   ],
     exports: [
         RouterModule,

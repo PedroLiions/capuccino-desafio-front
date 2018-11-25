@@ -51,10 +51,10 @@
 
         <div class="col-12 d-flex justify-content-end mt-3">
             <button *ngIf="!id" class="btn btn-primary" (click)="onSubmit()" [ngClass]="btnSubmitCheckStyle('add')">
-                Adicionar produto
+                Adicionar produto<i class="far fa-save ml-2"></i>
             </button>
             <button *ngIf="id" class="btn btn-primary" (click)="onSubmit()"  [ngClass]="btnSubmitCheckStyle('edit')">
-                Salvar alterações
+                Salvar alterações<i class="far fa-save ml-2"></i>
             </button>
         </div>
 

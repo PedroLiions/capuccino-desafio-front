@@ -1,14 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Category} from "../../_models/Category";
 import {CategoryService} from "../../../_services/category.service";
 import swal from "sweetalert";
 
 @Component({
-    selector: 'app-product-category',
-    templateUrl: './product-category.component.html',
-    styleUrls: ['./product-category.component.scss']
+  selector: 'app-post-category',
+  templateUrl: './post-category.component.html',
+  styleUrls: ['./post-category.component.scss']
 })
-export class ProductCategoryComponent implements OnInit {
+export class PostCategoryComponent implements OnInit {
+
 
     categories: Category[];
 
@@ -16,11 +17,10 @@ export class ProductCategoryComponent implements OnInit {
 
     constructor(
         private categoryService: CategoryService
-    ) {
-    }
+    ) {}
 
     ngOnInit() {
-        this.categoryService.getProductsCategory()
+        this.categoryService.getPostCategory()
             .subscribe(res => {
                 this.categories = res.data;
             });
@@ -33,8 +33,9 @@ export class ProductCategoryComponent implements OnInit {
     createCategory() {
         let form = new FormData();
         form.append('name', this.categoryName);
-        this.categoryService.createProductCategory(form)
+        this.categoryService.createPostCategory(form)
             .subscribe(res => {
+                console.log(res);
                 this.categories.push(res.data);
             }, err => console.log(err));
     }
@@ -52,7 +53,7 @@ export class ProductCategoryComponent implements OnInit {
             dangerMode: true,
         }).then(function (isConfirm) {
             if (isConfirm) {
-                let deleteCategory = self.categoryService.productDestroy(id)
+                let deleteCategory = self.categoryService.postDestroy(id)
                     .subscribe(res => {
                         swal({
                             text: res.message,

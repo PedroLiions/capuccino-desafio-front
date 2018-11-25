@@ -44,7 +44,6 @@ export class ProductFormComponent implements OnInit {
 
         let get = this.categoryService.getProductsCategory()
             .subscribe(res => {
-                    console.log(res);
                     this.arrayCategories = res.data;
                 }, err => console.log(err),
                 () => {
@@ -65,7 +64,6 @@ export class ProductFormComponent implements OnInit {
     getProduct() {
         let getProduct = this.productService.show(this.id)
             .subscribe(res => {
-                console.log(res);
                 this.product = res.data
             }, err => {
                 console.log(err)
@@ -109,7 +107,6 @@ export class ProductFormComponent implements OnInit {
                 this.formToSubmit.append('status', '1');
                 let create = this.productService.postProduct(this.formToSubmit)
                     .subscribe(res => {
-                        console.log(res);
                         swal({
                             text: res.message,
                             icon: res.icon

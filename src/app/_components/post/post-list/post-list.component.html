@@ -1,10 +1,16 @@
 <div class="row mb-4">
   <div class="col-md-6">
-    <h2>Lista de Posts</h2>
+    <h4>
+      <i class="far fa-list-alt mr-1"></i>Lista de Posts
+    </h4>
   </div>
+
   <div class="col-md-6 d-flex justify-content-end">
+    <button class="btn btn-link mr-4" routerLink="/post/categorias">
+      <i class="far fa-list-alt mr-1"></i>Categorias
+    </button>
     <button class="btn btn-outline-primary" routerLink="/post/novo">
-      Novo post
+      Novo post<i class="fas fa-plus ml-2"></i>
     </button>
   </div>
 
@@ -32,13 +38,18 @@
     </td>
     <td class="text-right" style="width: 100px;">
       <button class="btn btn-primary btn-sm" routerLink="/post/editar/{{ post.id }}">
-        Editar
+        Editar<i class="far fa-edit ml-1"></i>
       </button>
     </td>
     <td class="text-right" style="width: 100px;">
       <button class="btn btn-danger btn-sm" (click)="remove(post.id, i)">
-        Remover
+        Excluir<i class="fas fa-times ml-1"></i>
       </button>
+    </td>
+  </tr>
+  <tr *ngIf="posts && posts.length == 0">
+    <td class="pt-4" colspan="5">
+      <i>Nenhum post encontrado.</i>
     </td>
   </tr>
   </tbody>

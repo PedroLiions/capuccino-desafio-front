@@ -87,7 +87,6 @@ export class PostFormComponent implements OnInit {
 
                 let categories = (JSON.stringify(this.postForm.get('categories').value));
 
-                console.log(categories);
 
                 if (this.id) this.formToSubmit.append('id', ''+this.id);
 

@@ -5,11 +5,13 @@ import {AppComponent} from "../../app.component";
 import {MainComponent} from "../../_components/_main/main.component";
 import {ProductFormComponent} from "../../_components/product/product-form/product-form.component";
 import {ProductCategoryComponent} from "../../_components/product/product-category/product-category.component";
+import {UserGuard} from "../../_guards/user.guard";
 
 const routes: Routes = [
     {
         path: 'produtos',
         component: MainComponent,
+        canActivateChild: [UserGuard],
         children: [
             {
                 path: '',
